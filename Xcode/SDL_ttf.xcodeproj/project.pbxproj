@@ -23,6 +23,13 @@
 			remoteGlobalIDString = BE48FD5D07AFA17000BB41DA;
 			remoteInfo = Framework;
 		};
+		DAE137421A61AB3900749BD0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DAE1373E1A61AB3900749BD0 /* test-ext.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DAE137341A61AB3800749BD0;
+			remoteInfo = "test-ext";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -44,9 +51,10 @@
 		AA9EE79814B2C589008773C0 /* FreeType.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FreeType.framework; path = Frameworks/FreeType.framework; sourceTree = "<group>"; };
 		BE48FD6607AFA17000BB41DA /* Info-Framework.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-Framework.plist"; sourceTree = "<group>"; };
 		BE48FD6707AFA17000BB41DA /* SDL2_ttf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SDL2_ttf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BE48FD6E07AFA17000BB41DA /* libSDL_ttf.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libSDL_ttf.a; path = libSDL2_ttf.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE48FD6E07AFA17000BB41DA /* libSDL2_ttf.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSDL2_ttf.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE48FD7207AFA17000BB41DA /* Create DMG */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Create DMG"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE48FD8307AFA29000BB41DA /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = /Library/Frameworks/SDL2.framework; sourceTree = "<absolute>"; };
+		DAE1373E1A61AB3900749BD0 /* test-ext.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "test-ext.xcodeproj"; path = "test-ext/test-ext/test-ext.xcodeproj"; sourceTree = "<group>"; };
 		F567D67A01CD962A01F3E8B9 /* SDL_ttf.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; name = SDL_ttf.c; path = ../SDL_ttf.c; sourceTree = SOURCE_ROOT; };
 		F59C710300D5CB5801000001 /* ReadMe.txt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; path = ReadMe.txt; sourceTree = "<group>"; };
 		F59C710400D5CB5801000001 /* Welcome.txt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; path = Welcome.txt; sourceTree = "<group>"; };
@@ -86,7 +94,7 @@
 			children = (
 				089C1665FE841158C02AAC07 /* Resources */,
 				BE48FD6707AFA17000BB41DA /* SDL2_ttf.framework */,
-				BE48FD6E07AFA17000BB41DA /* libSDL_ttf.a */,
+				BE48FD6E07AFA17000BB41DA /* libSDL2_ttf.a */,
 				BE48FD7207AFA17000BB41DA /* Create DMG */,
 			);
 			name = Products;
@@ -95,6 +103,7 @@
 		0867D691FE84028FC02AAC07 /* SDL_ttfFramework */ = {
 			isa = PBXGroup;
 			children = (
+				DAE1373E1A61AB3900749BD0 /* test-ext.xcodeproj */,
 				F59C70FC00D5CB5801000001 /* pkg-support */,
 				0153844A006D81B07F000001 /* Public Headers */,
 				08FB77ACFE841707C02AAC07 /* Library Source */,
@@ -135,6 +144,14 @@
 				BE48FD8307AFA29000BB41DA /* SDL2.framework */,
 			);
 			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		DAE1373F1A61AB3900749BD0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DAE137431A61AB3900749BD0 /* test-ext */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		F59C70FC00D5CB5801000001 /* pkg-support */ = {
@@ -217,7 +234,7 @@
 			name = "Static Library";
 			productInstallPath = /usr/local/lib;
 			productName = "Static Library";
-			productReference = BE48FD6E07AFA17000BB41DA /* libSDL_ttf.a */;
+			productReference = BE48FD6E07AFA17000BB41DA /* libSDL2_ttf.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		BE48FD6F07AFA17000BB41DA /* Create DMG */ = {
@@ -255,6 +272,12 @@
 			mainGroup = 0867D691FE84028FC02AAC07 /* SDL_ttfFramework */;
 			productRefGroup = 034768DDFF38A45A11DB9C8B /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = DAE1373F1A61AB3900749BD0 /* Products */;
+					ProjectRef = DAE1373E1A61AB3900749BD0 /* test-ext.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				BE48FD5D07AFA17000BB41DA /* Framework */,
@@ -263,6 +286,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		DAE137431A61AB3900749BD0 /* test-ext */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = "test-ext";
+			remoteRef = DAE137421A61AB3900749BD0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		BE48FD6007AFA17000BB41DA /* Resources */ = {
