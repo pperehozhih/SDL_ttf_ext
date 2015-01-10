@@ -1683,6 +1683,12 @@ SDL_Surface* TTF_RenderGlyph_Shaded( TTF_Font* font,
 }
 
 SDL_Surface *TTF_RenderText_Blended(TTF_Font *font,
+                                    const char *text, SDL_Color fg)
+{
+   return TTF_RenderUTF8_BlendedFrom(NULL, font, text, fg);
+}
+
+SDL_Surface *TTF_RenderText_BlendedFrom(SDL_Surface *from, TTF_Font *font,
                 const char *text, SDL_Color fg)
 {
     SDL_Surface *surface = NULL;
@@ -1693,7 +1699,7 @@ SDL_Surface *TTF_RenderText_Blended(TTF_Font *font,
     utf8 = SDL_stack_alloc(Uint8, SDL_strlen(text)*2+1);
     if ( utf8 ) {
         LATIN1_to_UTF8(text, utf8);
-        surface = TTF_RenderUTF8_Blended(font, (char *)utf8, fg);
+        surface = TTF_RenderUTF8_BlendedFrom(from, font, (char *)utf8, fg);
         SDL_stack_free(utf8);
     } else {
         SDL_OutOfMemory();
@@ -1702,6 +1708,11 @@ SDL_Surface *TTF_RenderText_Blended(TTF_Font *font,
 }
 
 SDL_Surface *TTF_RenderUTF8_Blended(TTF_Font *font,
+                                    const char *text, SDL_Color fg){
+   return TTF_RenderUTF8_BlendedFrom(NULL, font, text, fg);
+}
+
+SDL_Surface *TTF_RenderUTF8_BlendedFrom(SDL_Surface *from, TTF_Font *font,
                 const char *text, SDL_Color fg)
 {
     SDL_bool first;
@@ -1727,10 +1738,31 @@ SDL_Surface *TTF_RenderUTF8_Blended(TTF_Font *font,
         TTF_SetError("Text has zero width");
         return(NULL);
     }
+   
+    /*Validate input surface*/
+    if (from) {
+       if (from->w < width || from->h < height) {
+          TTF_SetError("Input surface has too small");
+          return(NULL);
+       }
+       
+       if (from->format->Rmask != 0x00FF0000 ||
+           from->format->Gmask != 0x0000FF00 ||
+           from->format->Bmask != 0x000000FF ||
+           from->format->Amask != 0xFF000000 ||
+           from->format->BitsPerPixel != 32) {
+          TTF_SetError("Invalid pixel format");
+          return(NULL);
+       }
+    }
 
     /* Create the target surface */
-    textbuf = SDL_CreateRGBSurface(SDL_SWSURFACE, width, height, 32,
+    if (from) {
+       textbuf = from;
+    } else {
+       textbuf = SDL_CreateRGBSurface(SDL_SWSURFACE, width, height, 32,
                                0x00FF0000, 0x0000FF00, 0x000000FF, 0xFF000000);
+    }
     if ( textbuf == NULL ) {
         return(NULL);
     }
@@ -1825,6 +1857,13 @@ SDL_Surface *TTF_RenderUTF8_Blended(TTF_Font *font,
 }
 
 SDL_Surface *TTF_RenderUNICODE_Blended(TTF_Font *font,
+                                       const Uint16 *text, SDL_Color fg)
+{
+   return TTF_RenderUNICODE_BlendedFrom(NULL, font, text, fg);
+}
+
+
+SDL_Surface *TTF_RenderUNICODE_BlendedFrom(SDL_Surface *from, TTF_Font *font,
                 const Uint16 *text, SDL_Color fg)
 {
     SDL_Surface *surface = NULL;
@@ -1835,7 +1874,7 @@ SDL_Surface *TTF_RenderUNICODE_Blended(TTF_Font *font,
     utf8 = SDL_stack_alloc(Uint8, UCS2_len(text)*3+1);
     if ( utf8 ) {
         UCS2_to_UTF8(text, utf8);
-        surface = TTF_RenderUTF8_Blended(font, (char *)utf8, fg);
+        surface = TTF_RenderUTF8_BlendedFrom(from, font, (char *)utf8, fg);
         SDL_stack_free(utf8);
     } else {
         SDL_OutOfMemory();
