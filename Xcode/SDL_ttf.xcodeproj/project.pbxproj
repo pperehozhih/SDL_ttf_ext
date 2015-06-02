@@ -47,7 +47,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1014BAEA010A4B677F000001 /* SDL_ttf.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = SDL_ttf.h; path = ../SDL_ttf.h; sourceTree = SOURCE_ROOT; };
+		1014BAEA010A4B677F000001 /* SDL_ttf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SDL_ttf.h; path = ../SDL_ttf.h; sourceTree = SOURCE_ROOT; };
 		AA9EE79814B2C589008773C0 /* FreeType.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FreeType.framework; path = Frameworks/FreeType.framework; sourceTree = "<group>"; };
 		BE48FD6607AFA17000BB41DA /* Info-Framework.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-Framework.plist"; sourceTree = "<group>"; };
 		BE48FD6707AFA17000BB41DA /* SDL2_ttf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SDL2_ttf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,7 +55,7 @@
 		BE48FD7207AFA17000BB41DA /* Create DMG */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Create DMG"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE48FD8307AFA29000BB41DA /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = /Library/Frameworks/SDL2.framework; sourceTree = "<absolute>"; };
 		DAE1373E1A61AB3900749BD0 /* test-ext.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "test-ext.xcodeproj"; path = "test-ext/test-ext/test-ext.xcodeproj"; sourceTree = "<group>"; };
-		F567D67A01CD962A01F3E8B9 /* SDL_ttf.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; name = SDL_ttf.c; path = ../SDL_ttf.c; sourceTree = SOURCE_ROOT; };
+		F567D67A01CD962A01F3E8B9 /* SDL_ttf.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = SDL_ttf.c; path = ../SDL_ttf.c; sourceTree = SOURCE_ROOT; };
 		F59C710300D5CB5801000001 /* ReadMe.txt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; path = ReadMe.txt; sourceTree = "<group>"; };
 		F59C710400D5CB5801000001 /* Welcome.txt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; path = Welcome.txt; sourceTree = "<group>"; };
 		F59C710600D5CB5801000001 /* SDL_ttf.info */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; path = SDL_ttf.info; sourceTree = "<group>"; };
